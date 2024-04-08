@@ -1,0 +1,19 @@
+{
+  "name": "ambidata_pia__frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeissonR115/ambidata_PIA__frontend.git"
+  },
+  "author": "jeisson, kevin, brayan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JeissonR115/ambidata_PIA__frontend/issues"
+  },
+  "homepage": "https://github.com/JeissonR115/ambidata_PIA__frontend#readme"
+}
