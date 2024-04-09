@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import logo from '../public/logo.svg'; // Importa la imagen del logo
+import { useState } from 'react';
+import FilterInput from './filter/filter-input';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchValue, setSearchValue] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
+  
+  const options = [
+    { id: 'fecha', text: 'Fecha', type: 'date' },
+    { id: 'humedad', text: 'Humedad', type: 'number' },
+    { id: 'temperatura', text: 'Temperatura', type: 'number' },
+    { id: 'lugar', text: 'Lugar', type: 'text' },
+    { id: 'todo', text: 'Todo', type: 'text' }
+  ];
+
+  const handleOptionChange = (event) => {
+    const selectedType = event.target.value;
+    setSelectedOption(selectedType);
+    setSearchValue(''); // Limpiar el valor de búsqueda al cambiar la opción
+  };
+
+  const handleInputChange = (event) => {
+    setSearchValue(event.target.value);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="header">
+        <h1 className="title">AmbiData</h1>
+        <img className='logo' src={logo} alt="Logo" /> {/* Usa la imagen del logo */}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="search-container">
+        <input 
+          type={selectedOption}
+          id="search-input" 
+          className="search-input" 
+          placeholder="Buscar..." 
+          value={searchValue}
+          onChange={handleInputChange}
+        />
+        <button id="search-button" className="search-button">Buscar</button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div className="filter-container">
+        {/* Utiliza una lista de opciones de filtro para evitar la repetición de código */}
+        {options.map((option) =>(          
+        <FilterInput 
+            key={option.id} 
+            text={option.text} 
+            type={option.type} 
+            handler={handleOptionChange} 
+          />)
+          )}
+      </div>
+      <div className="api-data" >Ingrese una búsqueda y presione el botón.</div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
