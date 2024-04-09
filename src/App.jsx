@@ -1,59 +1,75 @@
+import React, { useState } from 'react';
 import './App.css';
-import logo from '../public/logo.svg'; // Importa la imagen del logo
-import { useState } from 'react';
-import FilterInput from './filter/filter-input';
+import logo from '../public/logo.svg';
+import Filter from './filter/Filter';
+import Search from './search/Search';
+import SensorData from './sensor_data/SensorData';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
-  
+  const [selectedOption, setSelectedOption] = useState('date'); // Inicializa con 'date'
+  const [selectedTypeDataOption, setSelectedTypeDataOption] = useState('date');
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(null);
+
   const options = [
-    { id: 'fecha', text: 'Fecha', type: 'date' },
-    { id: 'humedad', text: 'Humedad', type: 'number' },
-    { id: 'temperatura', text: 'Temperatura', type: 'number' },
-    { id: 'lugar', text: 'Lugar', type: 'text' },
-    { id: 'todo', text: 'Todo', type: 'text' }
+    { id: 'date', value: 'date', text: 'Fecha', type: 'date' },
+    { id: 'ambient', value: 'ambient', text: 'Humedad', type: 'number' },
+    { id: 'temperature', value: 'temperature', text: 'Temperatura', type: 'number' },
+    { id: 'place', value: 'place', text: 'Lugar', type: 'text' },
+    { id: 'all', value: 'all', text: 'Todo', type: 'text' }
   ];
 
   const handleOptionChange = (event) => {
-    const selectedType = event.target.value;
-    setSelectedOption(selectedType);
-    setSearchValue(''); // Limpiar el valor de búsqueda al cambiar la opción
+    setSelectedOption(event.target.value);
+    const selectedOption = options.find(option => option.value === event.target.value);
+    setSelectedTypeDataOption(selectedOption.type);
+    setSearchValue('');
   };
-
+  
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
+  };
+
+  const handleSearch = (responseData) => {
+    if (responseData.error) {
+      setError(responseData.error);
+      setData([]);
+    } else {
+      setError(null);
+      setData(responseData);
+    }
   };
 
   return (
     <>
       <div className="header">
         <h1 className="title">AmbiData</h1>
-        <img className='logo' src={logo} alt="Logo" /> {/* Usa la imagen del logo */}
+        <img className="logo" src={logo} alt="Logo" />
       </div>
-      <div className="search-container">
-        <input 
-          type={selectedOption}
-          id="search-input" 
-          className="search-input" 
-          placeholder="Buscar..." 
-          value={searchValue}
-          onChange={handleInputChange}
-        />
-        <button id="search-button" className="search-button">Buscar</button>
-      </div>
+      <Search
+        type={selectedTypeDataOption}
+        attribute={selectedOption}
+        handleInputChange={handleInputChange}
+        handleSearch={handleSearch}
+      />
       <div className="filter-container">
-        {/* Utiliza una lista de opciones de filtro para evitar la repetición de código */}
-        {options.map((option) =>(          
-        <FilterInput 
-            key={option.id} 
-            text={option.text} 
-            type={option.type} 
-            handler={handleOptionChange} 
-          />)
-          )}
+        {options.map((option,i) => (
+          <Filter
+        
+            key={option.id}
+            text={option.text}
+            value={option.value}
+            handler={handleOptionChange}
+            checked={selectedOption === option.value} // Establece el valor de checked
+          />
+        ))}
       </div>
-      <div className="api-data" >Ingrese una búsqueda y presione el botón.</div>
+      {error ? (
+        <p>{ `Hubo un error al obtener los datos. De la busqueda: ${searchValue} `}</p>
+      ) : (
+        <SensorData data={data} />
+      )}
     </>
   );
 }

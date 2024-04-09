@@ -10,8 +10,7 @@ export function colorear(styleSheet, startColor = { value: 207, saturation: 100,
         // Construye la regla de estilo CSS para aplicar el color al elemento HTML
         const rule =
             `.sensor--${i} { 
-            background-color: ${color}; 
-            color:${fLightness <= 60 ? "#d7ecfd" : "#222"};/*Cambia el color del texto según la claridad del fondo*/
+            border-color: ${color}; 
         }`;
         // Inserta la regla de estilo en la hoja de estilo CSS
         styleSheet.insertRule(rule, styleSheet.cssRules.length);
