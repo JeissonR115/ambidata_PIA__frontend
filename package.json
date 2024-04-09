@@ -1,19 +1,26 @@
 {
-  "name": "ambidata_pia__frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/app.js",
+  "name": "ambidata-pia-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JeissonR115/ambidata_PIA__frontend.git"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "author": "Jeisson, Kevin, Bryam",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JeissonR115/ambidata_PIA__frontend/issues"
-  },
-  "homepage": "https://github.com/JeissonR115/ambidata_PIA__frontend#readme"
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "vite": "^5.2.0"
+  }
 }
