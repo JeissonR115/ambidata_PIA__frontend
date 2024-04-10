@@ -5,13 +5,13 @@ const styleElement = document.createElement('style');
 document.head.appendChild(styleElement);
 const styleSheet = styleElement.sheet; // Hoja de estilo CSS
 
-function SensorData({ data }) {
+function SensorData({ data,searchValue }) {
   // Si no hay datos, mostrar el texto "empezar a buscar"
-  if (data.length === 0) {
+  if (searchValue.length === 0) {
     return <p>Empezar a buscar...</p>;
   }
-  if(data.error){
-    return <p>elige una opción valida</p>
+  if(data.length === 0){
+    return <p>No se encontraron datos con la búsqueda de : {searchValue}</p>
   }
   colorear(styleSheet, { value: 120, saturation: 50, lightness: 90 }, data.length);
   // Si hay datos, mostrar los elementos del array

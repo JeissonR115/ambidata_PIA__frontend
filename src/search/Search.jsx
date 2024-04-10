@@ -10,7 +10,6 @@ function Search({ type = 'date', attribute, handleSearch }) {
       // Devuelve los datos obtenidos en formato JSON
       return await response.json();
     } catch (error) {
-      console.error('Error al consumir la API:', error);
       return { error }; // Devuelve un objeto con el error en caso de error
     }
   }
@@ -26,18 +25,17 @@ function Search({ type = 'date', attribute, handleSearch }) {
       place: '/find/place/', // Ruta para buscar por lugar
       all: '/', // Ruta para obtener todos los datos
     };
-    console.log(attribute, attributeList[attribute])
     // Devuelve la ruta correspondiente al atributo
     return attributeList[attribute];
   }
 
   const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    setInputValue(event.target.value.trim().toLowerCase());
   };
 
   const handleSearchClick = async () => {
     const responseData = await getData(inputValue, attribute);
-    handleSearch(responseData);
+    handleSearch(responseData,inputValue);
   };
 
   return (
@@ -49,6 +47,7 @@ function Search({ type = 'date', attribute, handleSearch }) {
         placeholder="Buscar..."
         value={inputValue}
         onChange={handleInputChange}
+        onKeyUp={handleSearchClick}
       />
       <button
         id="search-button"

@@ -31,7 +31,7 @@ function App() {
     setSearchValue(event.target.value);
   };
 
-  const handleSearch = (responseData) => {
+  const handleSearch = (responseData,searchValue) => {
     if (responseData.error) {
       setError(responseData.error);
       setData([]);
@@ -39,6 +39,7 @@ function App() {
       setError(null);
       setData(responseData);
     }
+    setSearchValue(searchValue)
   };
 
   return (
@@ -65,11 +66,7 @@ function App() {
           />
         ))}
       </div>
-      {error ? (
-        <p>{ `Hubo un error al obtener los datos. De la busqueda: ${searchValue} `}</p>
-      ) : (
-        <SensorData data={data} />
-      )}
+        <SensorData data={data} searchValue={searchValue} />
     </>
   );
 }
