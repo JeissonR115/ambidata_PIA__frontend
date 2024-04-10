@@ -4,6 +4,7 @@ function Search({ type = 'date', attribute, handleSearch }) {
   const [inputValue, setInputValue] = useState('');
 
   async function getData(input, attribute) {
+    if(input == '')return []
     try {
       // Realiza una solicitud a la API con el atributo seleccionado y el término de búsqueda (si se proporciona)
       const response = await fetch(`http://localhost:3000/sensordata${switchAttribute(attribute)}${attribute !== 'all' ? input : ''}`);
