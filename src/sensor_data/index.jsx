@@ -26,7 +26,7 @@ function SensorData({ data, searchValue }) {
         ))}
       </div>
       <div className='sensor-graph'>
-        <Graph />
+        <Graph data={data} />
       </div>
     </>
   );

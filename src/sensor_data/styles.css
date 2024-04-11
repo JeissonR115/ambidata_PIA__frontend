@@ -4,6 +4,7 @@
 .sensor-graph{
     width: 60%;
     min-width: 300px;
+    padding-bottom: 60px;
 }
 .sensor {
     font-size: 1.5rem;
@@ -12,4 +13,9 @@
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+@media only screen and (max-width: 600px) {
+    .sensor-graph,.sensor-data{
+        width: 100%;
+    }
 }

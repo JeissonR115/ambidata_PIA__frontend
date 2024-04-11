@@ -1,18 +1,33 @@
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import { separateData } from './separateData.js';
 
-function Graph() {
+function Graph({ data, filter }) {
+    const filteredData = separateData(data,'fecha')
     const options = {};
-    const labels = ['1','2','3','4','5','6','7']
+    
+    const labels = filteredData.fecha
+    // Extracting the frequency of each date
+    
     const datasets = [{
-        label: 'My First Dataset',
-        data: [65, 59, 80, 81, 56, 55, 40],
+        label: 'temperatura',
+        data: filteredData.temperature,
         borderColor: 'rgb(75, 192, 192)',
-    }]
+    },
+    {
+        label: 'Humedad',
+        data: filteredData.ambient,
+        borderColor: 'rgb(200, 100, 100)',
+    }
+
+];
+
     const chartData = {
         labels: labels,
         datasets: datasets
     };
-    return <Line data={chartData} />
+
+    return <Line data={chartData} options={options} />;
 }
-export default Graph
+
+export default Graph;
