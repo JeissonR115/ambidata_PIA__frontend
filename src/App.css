@@ -1,21 +1,25 @@
 #root {
+  width: 100vw;
+  height: 100vh;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding:5rem 0rem;
   text-align: center;
 }
-.header,.search-container{
+.header,.search-container,.filter-container,.sensor-container{
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 80%;
-  min-width: 300px;
-  margin: 25px auto ;
+  max-width: 600px;
+  min-width: 280px;
+  margin: 30px auto ;
 }
 .title{
     width: 70%;
     max-width: 250px;
+    min-width: 210px;
 
 }
 .logo {
@@ -23,19 +27,19 @@
   min-width: 70px;
   max-width: 300px;
 }
-.filter-container {
-  display: flex;
-  margin: 30px;
-}
 .sensor-container{
-  font-size: 1.5rem;
+  max-width: 1000px;
+  font-size: 2rem;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  padding-bottom: 50px;
 }
 @media only screen and (max-width: 600px) {
-  .search-input, .search-button {
-      width: 100%;
-      box-sizing: border-box;
-  }
   .filter-container{
       flex-direction: column;
+  }
+  .sensor-container{
+    flex-direction: column-reverse;
+    align-items: center;
   }
 }
