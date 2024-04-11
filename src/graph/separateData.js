@@ -4,7 +4,14 @@ export function separateData(data) {
             if (!result[key]) {
                 result[key] = [];
             }
-            result[key].push(value);
+            if (key === 'fecha') {
+                // Solo almacenar hasta la hora en formato de cadena
+                const formattedDate = value.slice(0, 13).replace('T', '  ');
+                result[key].push(formattedDate+'h');
+            } else{
+                result[key].push(value);
+            }
+            
         });
         return result;
     }, {});
