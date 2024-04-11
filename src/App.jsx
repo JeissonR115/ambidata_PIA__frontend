@@ -11,13 +11,13 @@ function App() {
   const [selectedTypeDataOption, setSelectedTypeDataOption] = useState('date');
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-
+ 
   const options = [
     { id: 'date', value: 'date', text: 'Fecha', type: 'date' },
     { id: 'ambient', value: 'ambient', text: 'Humedad', type: 'number' },
     { id: 'temperature', value: 'temperature', text: 'Temperatura', type: 'number' },
     { id: 'place', value: 'place', text: 'Lugar', type: 'text' },
-    { id: 'all', value: 'all', text: 'Todo', type: 'text' }
+    // { id: 'all', value: 'all', text: 'Todo', type: 'text' }
   ];
 
   const handleOptionChange = (event) => {
@@ -66,7 +66,10 @@ function App() {
           />
         ))}
       </div>
+      <div className='sensor-container'>
         <SensorData data={data} searchValue={searchValue} />
+      </div>
+        
     </>
   );
 }

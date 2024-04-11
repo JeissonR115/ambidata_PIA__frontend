@@ -16,13 +16,13 @@ function SensorData({ data,searchValue }) {
   colorear(styleSheet, { value: 120, saturation: 50, lightness: 90 }, data.length);
   // Si hay datos, mostrar los elementos del array
   return (
-    <div>
+    <>
       {data.map((sensor, index) => (
         <div key={index} className={`sensor sensor--${index}`}>
           <p>humedad: {sensor.ambient}% - temperatura: {sensor.temperature}°C - fecha: {sensor.fecha.match(/^(\d{4}-\d{2}-\d{2})/)[1]} hora: {sensor.fecha.match(/T(\d{2}:\d{2}:\d{2})/)[1]}</p>
         </div>
       ))}
-    </div>
+    </>
   );
 }
 
