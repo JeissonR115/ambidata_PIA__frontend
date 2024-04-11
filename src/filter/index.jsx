@@ -1,3 +1,5 @@
+import React from 'react';
+import './styles.css'
 function Filter({text,value,handler=()=>{}}) {
   return (
     <label className="filter">

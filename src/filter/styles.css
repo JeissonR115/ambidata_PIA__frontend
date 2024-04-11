@@ -1,0 +1,40 @@
+.filter {
+    min-width: 100px;
+    height: 32px;
+    margin: 4px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #66666649;
+    user-select: none;
+}
+
+.filter:hover {
+    background-color: #66666694;
+}
+
+.filter-text {
+    text-align: center;
+    font-size: 20px;
+    padding: 3px 0px;
+    display: block;
+    width: 100%;
+}
+
+.filter-input {
+    display: none;
+    position: absolute;
+}
+
+.filter-input:checked+span {
+    background-color: #289019;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .filter-container {
+        flex-direction: column;
+    }
+}

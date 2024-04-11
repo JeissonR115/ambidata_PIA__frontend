@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import logo from '../public/logo.svg';
-import Filter from './filter/Filter';
-import Search from './search/Search';
-import SensorData from './sensor_data/SensorData';
+import Filter from './filter';
+import Search from './search';
+import SensorData from './sensor_data';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
@@ -11,7 +11,7 @@ function App() {
   const [selectedTypeDataOption, setSelectedTypeDataOption] = useState('date');
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
- 
+
   const options = [
     { id: 'date', value: 'date', text: 'Fecha', type: 'date' },
     { id: 'ambient', value: 'ambient', text: 'Humedad', type: 'number' },
@@ -26,12 +26,12 @@ function App() {
     setSelectedTypeDataOption(selectedOption.type);
     setSearchValue('');
   };
-  
+
   const handleInputChange = (event) => {
     setSearchValue(event.target.value);
   };
 
-  const handleSearch = (responseData,searchValue) => {
+  const handleSearch = (responseData, searchValue) => {
     if (responseData.error) {
       setError(responseData.error);
       setData([]);
@@ -48,16 +48,19 @@ function App() {
         <h1 className="title">AmbiData</h1>
         <img className="logo" src={logo} alt="Logo" />
       </div>
-      <Search
-        type={selectedTypeDataOption}
-        attribute={selectedOption}
-        handleInputChange={handleInputChange}
-        handleSearch={handleSearch}
-      />
+      <div className="search-container">
+        <Search
+          type={selectedTypeDataOption}
+          attribute={selectedOption}
+          handleInputChange={handleInputChange}
+          handleSearch={handleSearch}
+        />
+      </div>
+
       <div className="filter-container">
-        {options.map((option,i) => (
+        {options.map((option, i) => (
           <Filter
-        
+
             key={option.id}
             text={option.text}
             value={option.value}
@@ -69,7 +72,7 @@ function App() {
       <div className='sensor-container'>
         <SensorData data={data} searchValue={searchValue} />
       </div>
-        
+
     </>
   );
 }

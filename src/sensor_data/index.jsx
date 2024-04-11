@@ -1,5 +1,5 @@
 import React from 'react';
-import './SensorData.css'
+import './styles.css'
 import { colorear } from './color.js';
 const styleElement = document.createElement('style');
 document.head.appendChild(styleElement);

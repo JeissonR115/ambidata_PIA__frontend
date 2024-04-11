@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './styles.css'
 function Search({ type = 'date', attribute, handleSearch }) {
   const [inputValue, setInputValue] = useState('');
 
@@ -40,7 +40,7 @@ function Search({ type = 'date', attribute, handleSearch }) {
   };
 
   return (
-    <div className="search-container">
+    <>
       <input
         type={type}
         id="search-input"
@@ -57,7 +57,7 @@ function Search({ type = 'date', attribute, handleSearch }) {
       >
         Buscar
       </button>
-    </div>
+    </>
   );
 }
 
