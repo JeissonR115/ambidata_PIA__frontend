@@ -33,7 +33,9 @@ function Search({ type = 'date', attribute, handleSearch }) {
   const handleInputChange = (event) => {
     setInputValue(event.target.value.trim().toLowerCase());
   };
-
+  const handleInputClick = (event) => {
+    setInputValue('')
+  };
   const handleSearchClick = async () => {
     const responseData = await getData(inputValue, attribute);
     handleSearch(responseData,inputValue);
@@ -48,7 +50,8 @@ function Search({ type = 'date', attribute, handleSearch }) {
         placeholder="Buscar..."
         value={inputValue}
         onChange={handleInputChange}
-        onKeyUp={handleSearchClick}
+        onClick={handleInputClick}
+        // onKeyUp={handleSearchClick}
       />
       <button
         id="search-button"
