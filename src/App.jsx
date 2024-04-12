@@ -36,8 +36,11 @@ function App() {
       setError(responseData.error);
       setData([]);
     } else {
-      setError(null);
-      setData(responseData);
+      setTimeout(() => {
+        setError(null);
+        setData(responseData);
+      }, 3000);
+      setData(null);
     }
     setSearchValue(searchValue)
   };

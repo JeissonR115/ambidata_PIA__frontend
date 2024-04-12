@@ -8,6 +8,9 @@ const styleSheet = styleElement.sheet; // Hoja de estilo CSS
 
 function SensorData({ data, searchValue }) {
   // Si no hay datos, mostrar el texto "empezar a buscar"
+  if (data === null) {
+    return <p>Buscando ...</p>;
+  }
   if (searchValue.length === 0) {
     return <p>Empezar a buscar...</p>;
   }
