@@ -1,6 +1,6 @@
-<div className="header" style="display: flex; align-items: center;justify-content: space-evenly;width: 250px;margin:auto;padding:20px">
-    <h1 className="title" style="font-size: 50px;"">AmbiData</h1>
-    <img className="logo" src="public/logo.svg" alt="Logo" style=" width: 100px;"/>
+<div>
+    <h1>AmbiData</h1>
+    <img src="public/logo.svg" alt="Logo" style=" width: 100px;"/>
 </div>
 
 Ambidata es una aplicación web diseñada para la visualización y análisis de datos de sensores ambientales. La plataforma ofrece una interfaz intuitiva que permite a los usuarios acceder a los datos de los sensores y aplicar filtros para seleccionar la información relevante. Además, Ambidata presenta los datos en forma de gráficas visuales, facilitando la comprensión de las tendencias y patrones ambientales.
