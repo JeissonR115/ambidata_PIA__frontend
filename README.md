@@ -1,5 +1,8 @@
+<div className="header" style="display: flex; align-items: center;justify-content: space-evenly;width: 250px;margin:auto;padding:20px">
+    <h1 className="title" style="font-size: 50px;"">AmbiData</h1>
+    <img className="logo" src="public/logo.svg" alt="Logo" style=" width: 100px;"/>
+</div>
 
-# Ambidata
 Ambidata es una aplicación web diseñada para la visualización y análisis de datos de sensores ambientales. La plataforma ofrece una interfaz intuitiva que permite a los usuarios acceder a los datos de los sensores y aplicar filtros para seleccionar la información relevante. Además, Ambidata presenta los datos en forma de gráficas visuales, facilitando la comprensión de las tendencias y patrones ambientales.
 
 ## Funcionalidades
@@ -28,12 +31,12 @@ Para instalar y ejecutar la aplicación, siga estos pasos:
 ## Uso
 
 Una vez que haya iniciado el servidor de desarrollo, la aplicación se cargará en su navegador web. En la página principal, encontrará un formulario que incluye un campo de entrada de fecha (predeterminado), un botón de búsqueda y opciones de filtro.
-
+![alt text](./public/readme/ambidataInterfaces.png)
 Para visualizar los datos, simplemente seleccione una de las opciones de filtrado y escriba los datos requeridos en el campo correspondiente. Los datos seleccionados se mostrarán dinámicamente en la gráfica principal, lo que le permitirá analizar las tendencias y patrones de manera intuitiva y efectiva.
-
+![alt text](./public/readme/ambidataInterfaces-2.png)
 ## Licencia
 
-Este proyecto está licenciado bajo la Licencia MIT. Consulte el archivo LICENSE para más detalles.
+Este proyecto está licenciado bajo la Licencia MIT. Consulte el archivo [LICENSE](https://raw.githubusercontent.com/JeissonR115/ambidata_PIA__frontend/main/LICENSE) para más detalles.
 
 ## Agradecimientos
 
