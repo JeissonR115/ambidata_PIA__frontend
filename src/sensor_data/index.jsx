@@ -21,7 +21,7 @@ function SensorData({ data, searchValue }) {
       <div className='sensor-data'>
         {data.map((sensor, index) => (
           <div key={index} className={`sensor sensor--${index}`}>
-            <p>humedad: {sensor.ambient}% - temperatura: {sensor.temperature}°C - fecha: {sensor.fecha.match(/^(\d{4}-\d{2}-\d{2})/)[1]} hora: {sensor.fecha.match(/T(\d{2}:\d{2}:\d{2})/)[1]}</p>
+            <p>lugar : {sensor.place} - humedad: {sensor.ambient}% - temperatura: {sensor.temperature}°C - fecha: {sensor.fecha.match(/^(\d{4}-\d{2}-\d{2})/)[1]} hora: {sensor.fecha.match(/T(\d{2}:\d{2}:\d{2})/)[1]}</p>
           </div>
         ))}
       </div>
