@@ -43,7 +43,8 @@ const Login = () => {
                         <span className="input-icon"><i className="fas fa-lock"></i></span>
                     </div>
                     {error && <div className="error-message">{error}</div>}
-                    <button type="button" onClick={handleLogin}>Login</button>
+                    <button type="button" onClick={handleLogin} style={{ color: 'black' }}>Login</button>
+
                 </form>
             </div>
         </div>
