@@ -1,16 +1,14 @@
 
-.arbolito-container,
 .input-group input {
     width: 100%; /* Cambia el ancho de los campos de entrada */
     padding: 14px 20px; /* Ajusta el relleno de los campos de entrada */
-    border: 1px solid #ffffff;
-    border-radius: 20px; /* Ajusta el radio de borde de los campos de entrada */
+    border-radius: 10px; /* Ajusta el radio de borde de los campos de entrada */
     font-size: 17px; /* Ajusta el tamaño de la fuente de los campos de entrada */
     margin-bottom: 10px;
 }
 
 .arbolito-container {
-    width: 187.5px; /* Aumenta el ancho del contenedor del árbol en un 25% */
+    width: 100%; /* Aumenta el ancho del contenedor del árbol en un 25% */
 }
 
 .arbolito-svg,
@@ -71,13 +69,11 @@ button {
     padding: 20px 90px; /* Ajusta el relleno del botón según sea necesario */
     border: none;
     border-radius: 8px; /* Ajusta el radio de borde del botón según sea necesario */
-    background-color: #1aff00;
+
     color: rgb(255, 255, 255);
     font-size: 20px; /* Ajusta el tamaño de la fuente según sea necesario */
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #00b324;
-}
+
