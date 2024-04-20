@@ -1,0 +1,79 @@
+
+.input-group input {
+    width: 100%; /* Cambia el ancho de los campos de entrada */
+    padding: 14px 20px; /* Ajusta el relleno de los campos de entrada */
+    border-radius: 10px; /* Ajusta el radio de borde de los campos de entrada */
+    font-size: 17px; /* Ajusta el tamaño de la fuente de los campos de entrada */
+    margin-bottom: 10px;
+}
+
+.arbolito-container {
+    width: 100%; /* Aumenta el ancho del contenedor del árbol en un 25% */
+}
+
+.arbolito-svg,
+.input-group input {
+    width: 100%;
+    height: auto;
+}
+
+.logo {
+    width: 75px; /* Ajusta el tamaño de la imagen según sea necesario */
+    margin-bottom: 2.5px; /* Ajusta el margen inferior */
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-container {
+    flex: 1;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    display: flex ruby-base-container; /* Cambia el contenedor del formulario a un flex container */
+    flex-direction: column; /* Apila los elementos verticalmente por defecto */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    width: 600px; /* Ajusta el ancho del formulario según sea necesario */
+    padding: 60px; /* Ajusta el relleno del formulario según sea necesario */
+    border-radius: 120px; /* Ajusta el radio de borde del formulario según sea necesario */
+    background-color: #ffffff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: right;
+}
+
+.login-box h2 {
+    margin-bottom: 60px; /* Ajusta el margen inferior según sea necesario */
+    text-align: center;
+    font-size: 36px; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: #333;
+}
+
+.error-message {
+    color: red;
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    padding: 20px 90px; /* Ajusta el relleno del botón según sea necesario */
+    border: none;
+    border-radius: 8px; /* Ajusta el radio de borde del botón según sea necesario */
+
+    color: rgb(255, 255, 255);
+    font-size: 20px; /* Ajusta el tamaño de la fuente según sea necesario */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
