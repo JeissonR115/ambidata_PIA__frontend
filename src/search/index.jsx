@@ -11,7 +11,7 @@ function Search({ type = 'date', attribute, handleSearch }) {
     if(input == '')return []
     try {
       // Realiza una solicitud a la API con el atributo seleccionado y el término de búsqueda (si se proporciona)
-      const response = await fetch(`http://localhost:3000/sensordata${switchAttribute(attribute)}${attribute!== 'all'? input : ''}`);
+      const response = await fetch(`https://ttblrg4s-3000.use.devtunnels.ms/sensordata${switchAttribute(attribute)}${attribute!== 'all'? input : ''}`);
       // Devuelve los datos obtenidos en formato JSON
       return await response.json();
     } catch (error) {
