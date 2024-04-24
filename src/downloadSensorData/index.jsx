@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import './styles.css'
+
 function DownloadSensorData({ data = [] }) {
   const [selectedFileType, setSelectedFileType] = useState('txt');
 
   const handleFileTypeChange = (event) => {
     setSelectedFileType(event.target.value);
-  };
-
-  const convertFile = (data, typeFile) => {
-    const typeFiles = {
-      csv: convertJSONToCSV(data),
-      json: JSON.stringify(data),
-      txt: convertJSONToText(data),
-    };
-    return typeFiles[typeFile] ?? '';
   };
 
   const convertJSONToCSV = (data) => {
@@ -31,8 +23,53 @@ function DownloadSensorData({ data = [] }) {
     }).join('\n');
   };
 
-  const createFile = (data, typeFile) => {
-    const convertedData = convertFile(data, typeFile);
+  const convertJSONToXML = (data) => {
+    let xmlString = '<sensorData>';
+    data.forEach((sensor) => {
+      xmlString += '<sensor>';
+      Object.entries(sensor).forEach(([key, value]) => {
+        xmlString += `<${key}>${value}</${key}>`;
+      });
+      xmlString += '</sensor>';
+    });
+    xmlString += '</sensorData>';
+    return xmlString;
+  };
+
+  const convertJSONToHTML = (data) => {
+    let htmlString = '<table border="1">';
+  
+    // Crear encabezados de tabla
+    htmlString += '<tr>';
+    Object.keys(data[0]).forEach(key => {
+      htmlString += `<th>${key}</th>`;
+    });
+    htmlString += '</tr>';
+  
+    // Crear filas de datos
+    data.forEach(sensor => {
+      htmlString += '<tr>';
+      Object.values(sensor).forEach(value => {
+        htmlString += `<td>${value}</td>`;
+      });
+      htmlString += '</tr>';
+    });
+  
+    htmlString += '</table>';
+  
+    return htmlString;
+};
+
+  const typeFiles = {
+    csv: { name: "CSV", converter: convertJSONToCSV },
+    json: { name: "JSON", converter: JSON.stringify },
+    txt: { name: "Text", converter: convertJSONToText },
+    xml: { name: "XML", converter: convertJSONToXML },
+    html: { name: "HTML", converter: convertJSONToHTML },
+  };
+
+  const createFile = (typeFile) => {
+    const convertedData = typeFiles[typeFile].converter(data);
     const blob = new Blob([convertedData], { type: 'text/plain' });
     const tempAnchor = document.createElement('a');
     tempAnchor.href = URL.createObjectURL(blob);
@@ -43,15 +80,15 @@ function DownloadSensorData({ data = [] }) {
 
   return (
     <>
-    <div className='sensor-file__type'>
-      <label className='sensor-file__label' htmlFor="fileType">Select file type: </label>
-      <select className='sensor-file__select' id="fileType" value={selectedFileType} onChange={handleFileTypeChange}>
-        <option value="txt">Text</option>
-        <option value="csv">CSV</option>
-        <option value="json">JSON</option>
-      </select>
+      <div className='sensor-file__type'>
+        <label className='sensor-file__label' htmlFor="fileType">Selecciona el tipo de archivo: </label>
+        <select className='sensor-file__select' id="fileType" value={selectedFileType} onChange={handleFileTypeChange}>
+          {Object.keys(typeFiles).map((typeFile) => (
+            <option key={typeFile} value={typeFile}>{typeFiles[typeFile].name}</option>
+          ))}
+        </select>
       </div>
-      <button className='sensor-file__download' onClick={() => createFile(data, selectedFileType)}>Download</button>
+      <button className='sensor-file__download' onClick={() => createFile(selectedFileType)}>Download</button>
     </>
   );
 }
