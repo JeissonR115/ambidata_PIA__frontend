@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './styles.css';
-import arbolitoSVG from '/public/arbolito.svg';
+import arbolitoSVG from '/arbolito.svg';
 
 const Login = () => {
     const [username, setUsername] = useState('');

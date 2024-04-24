@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import logo from '../public/logo.svg';
+import logo from '/logo.svg';
 import Filter from './filter';
 import Search from './search';
 import SensorData from './sensor_data';
