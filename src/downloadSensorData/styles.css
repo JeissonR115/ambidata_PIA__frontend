@@ -1,0 +1,6 @@
+.sensor-file__type{
+    font-size: 1.5rem;
+}
+.sensor-file__select, .sensor-file__label, .sensor-file__download{
+    margin: 10px;
+}

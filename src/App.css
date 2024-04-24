@@ -29,9 +29,11 @@
 }
 .sensor-container{
   max-width: 1000px;
-  font-size: 2rem;
   align-items: flex-start;
   flex-wrap: nowrap;
+}
+.sensor-container>p{
+  font-size: 2rem;
 }
 @media only screen and (max-width: 600px) {
   .filter-container{
