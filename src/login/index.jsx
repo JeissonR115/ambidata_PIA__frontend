@@ -40,14 +40,17 @@ class Login extends Component {
     render() {
         const { username, password, error } = this.state;
         return (
+        <div className='fondo'>
+            {/*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></link>*/}
             <div className='login-container'>
                 <div className="login-box">
                     <div className="flex-container">
                         <div className="arbolito-container">
-                            <img src={arbolitoSVG} alt="Árbol Genealógico" className="arbolito-svg" />
+                            {/* <img src={arbolitoSVG} alt="Árbol Genealógico" className="arbolito-svg" /> */}
+                            <img className='imagen' src="/ambidata_PIA__frontend/public/6229893x2.jpg"></img>
                         </div>
                         <div className="form-container">
-                            <h2>Login</h2>
+                            <h1>User Login</h1>
                             <form>
                                 <div className="input-group">
                                     <input type="text" placeholder="Username" value={username} onChange={this.handleUsernameChange} />
@@ -58,12 +61,13 @@ class Login extends Component {
                                     <span className="input-icon"><i className="fas fa-lock"></i></span>
                                 </div>
                                 {error && <div className="error-message">{error}</div>}
-                                <button type="button" onClick={this.handleLogin} style={{ color: 'black' }}>Login</button>
+                                <button type="button" onClick={this.handleLogin} style={{ color: 'black' }}><h2>Login</h2></button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         );
     }
 }

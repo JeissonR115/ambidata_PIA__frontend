@@ -1,79 +1,102 @@
+.fondo{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
 
-.input-group input {
-    width: 100%; /* Cambia el ancho de los campos de entrada */
-    padding: 14px 20px; /* Ajusta el relleno de los campos de entrada */
-    border-radius: 10px; /* Ajusta el radio de borde de los campos de entrada */
-    font-size: 17px; /* Ajusta el tamaño de la fuente de los campos de entrada */
-    margin-bottom: 10px;
+    background-image: url(/ambidata_PIA__frontend/public/montañas.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.arbolito-container {
-    width: 100%; /* Aumenta el ancho del contenedor del árbol en un 25% */
-}
-
-.arbolito-svg,
-.input-group input {
-    width: 100%;
-    height: auto;
-}
-
-.logo {
-    width: 75px; /* Ajusta el tamaño de la imagen según sea necesario */
-    margin-bottom: 2.5px; /* Ajusta el margen inferior */
-}
-
-.flex-container {
+.login-container{
     display: flex;
-    align-items: center;
-}
-
-.form-container {
-    flex: 1;
-}
-
-.login-container {
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    width: 100vw;
     height: 100vh;
+    background-color: rgba(2, 172, 2, 0.395);
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.login-box{
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-box {
-    display: flex ruby-base-container; /* Cambia el contenedor del formulario a un flex container */
-    flex-direction: column; /* Apila los elementos verticalmente por defecto */
-    justify-content: center; /* Centra verticalmente el contenido */
-    align-items: center; /* Centra horizontalmente el contenido */
-    width: 600px; /* Ajusta el ancho del formulario según sea necesario */
-    padding: 60px; /* Ajusta el relleno del formulario según sea necesario */
-    border-radius: 120px; /* Ajusta el radio de borde del formulario según sea necesario */
-    background-color: #ffffff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    text-align: right;
+.flex-container{
+    width: 50%;
+    background-color: rgba(227, 227, 227, 0.911);
+
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.81);
+    border-radius: 10px 10px 10px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-box h2 {
-    margin-bottom: 60px; /* Ajusta el margen inferior según sea necesario */
-    text-align: center;
-    font-size: 36px; /* Ajusta el tamaño de la fuente según sea necesario */
-    color: #333;
-}
-
-.error-message {
-    color: red;
-    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
-    text-align: center;
-}
-
-.form-container button{
+.arbolito-container{
     width: 100%;
-    padding: 20px 90px; /* Ajusta el relleno del botón según sea necesario */
-    border: none;
-    border-radius: 8px; /* Ajusta el radio de borde del botón según sea necesario */
-
-    color: rgb(255, 255, 255);
-    font-size: 20px; /* Ajusta el tamaño de la fuente según sea necesario */
-    cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 10px 10px 0px 0px;
 }
 
+.imagen{
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
 
+.form-container{
+    width: 100%;
+    padding: 5px;
+    background-color: rgba(25, 240, 25, 0.456);
+    border-radius: 0px 0px 10px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-group {
+    width: 80%;
+    margin: 10% 0%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+input {
+    width: 100% 0% 100% 0%;
+    padding: 5%;
+    border: 1px solid #cccccce6;
+    border-radius: 3px 10px 3px 10px;
+}
+
+button {
+    padding: 2% 10% 2% 10%;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+h1 {
+    color: green;
+    text-align: center;
+    font-size: 20px;
+}
+h2{
+    color: white;
+    font-size: 14px;
+}
