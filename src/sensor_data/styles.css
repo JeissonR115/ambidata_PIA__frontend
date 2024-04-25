@@ -1,10 +1,20 @@
 .sensor-data{
     width: 35%;
 }
-.sensor-graph{
+.sensor-controls{
     width: 60%;
     min-width: 300px;
-    padding-bottom: 60px;
+}
+.sensor-graph{
+    width: 100%;
+    padding-bottom: 20px;
+}
+.sensor-file{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 .sensor {
     font-size: 1.5rem;
@@ -15,7 +25,7 @@
     border-radius: 5px;
 }
 @media only screen and (max-width: 600px) {
-    .sensor-graph,.sensor-data{
+    .sensor-controls,.sensor-data{
         width: 100%;
     }
 }

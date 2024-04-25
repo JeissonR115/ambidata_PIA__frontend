@@ -1,7 +1,8 @@
 import React from 'react';
 import './styles.css';
 import { colorear } from './color.js';
-import Graph from '../graph/index.jsx';
+import Graph from '../graph';
+import DownloadSensorData from '../downloadSensorData';
 
 const styleElement = document.createElement('style');
 document.head.appendChild(styleElement);
@@ -12,7 +13,7 @@ function SensorData({ data, searchValue }) {
   if (data === null) {
     return <p>Buscando...</p>;
   }
-   // Si no ha Empezado a buscar, mostrar el texto "empezar a buscar"
+  // Si no ha Empezado a buscar, mostrar el texto "empezar a buscar"
   if (searchValue.length === 0) {
     return <p>Empezar a buscar...</p>;
   }
@@ -34,9 +35,15 @@ function SensorData({ data, searchValue }) {
           </div>
         ))}
       </div>
-      <div className='sensor-graph'>
-        <Graph data={data} />
+      <div className='sensor-controls'>
+        <div className='sensor-graph'>
+          <Graph data={data} />
+        </div>
+        <div className='sensor-file'>
+          <DownloadSensorData data={data}></DownloadSensorData>
+        </div>
       </div>
+
     </>
   );
 }

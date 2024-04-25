@@ -64,7 +64,7 @@
     text-align: center;
 }
 
-button {
+.form-container button{
     width: 100%;
     padding: 20px 90px; /* Ajusta el relleno del botón según sea necesario */
     border: none;

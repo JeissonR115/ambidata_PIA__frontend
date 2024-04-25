@@ -1,0 +1,12 @@
+.sensor-file__type{
+    font-size: 1.5rem;
+}
+.sensor-file__select{
+    min-width: 100px;
+    height: 40px;
+    padding: 5px;
+    font-size: 1.6rem;
+}
+.sensor-file__select, .sensor-file__label, .sensor-file__download{
+    margin: 10px;
+}

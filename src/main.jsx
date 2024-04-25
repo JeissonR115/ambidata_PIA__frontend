@@ -5,10 +5,11 @@ import App from './App.jsx'
 import './index.css'
 import Calendar from './calendar/index.jsx'
 import Login from './login/index.jsx'
+const baseName = 'ambidata_PIA__frontend'
 const router = createBrowserRouter([
-  {path:"/",element:<App/>},
-  {path:"/calendar",element:<Calendar/>},
-  {path:"/login",element:<Login/>},
+  {path:`${baseName}/`,element:<App/>},
+  {path:`${baseName}/calendar`,element:<Calendar/>},
+  {path:`${baseName}/login`,element:<Login/>},
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
