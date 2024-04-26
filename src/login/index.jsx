@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './styles.css';
 import arbolitoSVG from '/arbolito.svg';
-
+import Redirect from 'react-dom/client'
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -28,8 +28,7 @@ class Login extends Component {
                 username: username,
                 password: password
             });
-            this.setState({ error: null });
-            alert("Inicio de sesión correcto");
+            this.setState({ error: null, redirectToRoot: true });
             console.log(response.data); // Manejar la respuesta del servidor según sea necesario
         } catch (error) {
             this.setState({ error: 'Credenciales inválidas' });
@@ -38,7 +37,10 @@ class Login extends Component {
     };
 
     render() {
-        const { username, password, error } = this.state;
+        const { username, password, error,redirectToRoot} = this.state;
+        if (redirectToRoot) {
+            return <Redirect to="/ambidata_PIA__frontend" />;
+        }
         return (
         <div className='fondo'>
             {/*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></link>*/}
