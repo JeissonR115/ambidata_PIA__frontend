@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
 
-    background-image: url(/ambidata_PIA__frontend/public/montañas.jpg) ;
+    background-image: url(/montañas.jpg) ;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -65,7 +65,7 @@
 }
 
 .input-group {
-    width: 80%;
+    width: 100%;
     margin: 10% auto;
 }
 
