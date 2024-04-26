@@ -5,7 +5,7 @@ import Calendar from './calendar/index';
 import Login from './login/';
 
 const AppRoutes = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(true); // Estado para controlar si el usuario está autenticado
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controlar si el usuario está autenticado
 
     // Componente de ruta privada
     const PrivateRoute = ({ element, ...rest }) => {
