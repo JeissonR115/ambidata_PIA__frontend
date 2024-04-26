@@ -4,9 +4,9 @@ import logo from '/logo.svg';
 import Filter from './filter';
 import Search from './search';
 import SensorData from './sensor_data';
+import Logout from './logout';
 
-
-function App() {
+function App({ setIsLoggedIn }) {
   // Estados
   const [searchValue, setSearchValue] = useState('');// búsqueda
   const [selectedOption, setSelectedOption] = useState('date');// opción seleccionada
@@ -51,7 +51,7 @@ function App() {
         setError(null);// Establece el estado del error en null
         setData(responseData);// Establece los datos recibidos
       }, 3000);
-      
+
       setData(null);// Establece los datos en null mientras pasan los tres segundos
     }
     setSearchValue(searchValue);// Establece el valor de búsqueda
@@ -63,7 +63,11 @@ function App() {
       <div className="header">
         <h1 className="title">AmbiData</h1>
         <img className="logo" src={logo} alt="Logo" />
+        <div className='logout-container'>
+          <Logout setIsLoggedIn={setIsLoggedIn} />
+        </div>
       </div>
+
       <div className="search-container">
         <Search
           type={selectedTypeDataOption}

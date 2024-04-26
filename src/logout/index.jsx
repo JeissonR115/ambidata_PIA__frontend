@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import "./styles.css"
 const Logout = ({ setIsLoggedIn }) => {
     const navigate = useNavigate();
 
@@ -10,7 +10,7 @@ const Logout = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <button onClick={handleLogout}>Logout</button>
+        <button className='button--logout' onClick={handleLogout}>Logout</button>
     );
 };
 

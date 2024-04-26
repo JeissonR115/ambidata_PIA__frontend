@@ -27,6 +27,12 @@
   min-width: 70px;
   max-width: 300px;
 }
+.logout-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
 .sensor-container{
   max-width: 1000px;
   align-items: flex-start;
