@@ -52,8 +52,8 @@ class Login extends Component {
                             <img className='imagen' src="/ambidata_PIA__frontend/public/6229893x2.jpg"></img>
                         </div>
                         <div className="form-container">
-                            <h1>User Login</h1>
-                            <form>
+                            <h1 className='form-title'>User Login</h1>
+                            <form className='form'>
                                 <div className="input-group">
                                     <input type="text" placeholder="Username" value={username} onChange={this.handleUsernameChange} />
                                     <span className="input-icon"><i className="fas fa-user"></i></span>
@@ -63,7 +63,7 @@ class Login extends Component {
                                     <span className="input-icon"><i className="fas fa-lock"></i></span>
                                 </div>
                                 {error && <div className="error-message">{error}</div>}
-                                <button type="button" onClick={this.handleLogin} style={{ color: 'black' }}><h2>Login</h2></button>
+                                <button className='form-button' type="button" onClick={this.handleLogin}>Login</button>
                             </form>
                         </div>
                     </div>

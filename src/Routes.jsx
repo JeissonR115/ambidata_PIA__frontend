@@ -8,9 +8,9 @@ const AppRoutes = () => {
     return (
         <BrowserRouter basename='/ambidata_PIA__frontend/'>
             <Routes>
-                <Route path="/" element={<App />} />
+                <Route path="/App" element={<App />} />
                 <Route path="/calendar" element={<Calendar />} />
-                <Route path="/Login" element={<Login />} />
+                <Route path="/" element={<Login />} />
             </Routes>
         </BrowserRouter>
     );
