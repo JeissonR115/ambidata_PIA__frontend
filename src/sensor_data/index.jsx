@@ -79,7 +79,7 @@ function SensorData({ data, searchValue }) {
 
         </div>
         <div className='sensor-file'>
-          <DownloadSensorData data={currentItems}></DownloadSensorData>
+          <DownloadSensorData data={data} />
         </div>
       </div>
     </>

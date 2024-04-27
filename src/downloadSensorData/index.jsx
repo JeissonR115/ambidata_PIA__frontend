@@ -67,7 +67,7 @@ class DownloadSensorData extends Component {
 
   createFile = (typeFile) => {
     const { data } = this.props;
-    const convertedData = this[typeFile].converter(data);
+    const convertedData = this.typeFiles[typeFile].converter(data);
     const blob = new Blob([convertedData], { type: 'text/plain' });
     const tempAnchor = document.createElement('a');
     tempAnchor.href = URL.createObjectURL(blob);
