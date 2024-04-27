@@ -24,6 +24,29 @@
     margin-bottom: 10px;
     border-radius: 5px;
 }
+.pagination{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    /* align-content: center; */
+    justify-content: space-around;
+}
+.pagination-button{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.pagination-button--container{
+    display: flex;
+    align-items: center;
+}
 @media only screen and (max-width: 600px) {
     .sensor-controls,.sensor-data{
         width: 100%;

@@ -3,7 +3,7 @@ import './styles.css';
 import { colorear } from './color.js';
 import Graph from '../graph';
 import DownloadSensorData from '../downloadSensorData';
-
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 const styleElement = document.createElement('style');
 document.head.appendChild(styleElement);
 const styleSheet = styleElement.sheet; // Hoja de estilo CSS
@@ -32,7 +32,7 @@ function SensorData({ data, searchValue }) {
   }
 
   // Colorear según el número de datos
-  colorear(styleSheet, { value: 120, saturation: 50, lightness: 90 }, currentItems.length);
+  colorear(styleSheet, { value: 120, saturation: 50, lightness: 90 }, data.length);
 
   // Función para cambiar de página
   const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -60,20 +60,23 @@ function SensorData({ data, searchValue }) {
           ))
         )}
       </div>
-      <div className='pagination'>
-        {/* Botones para cambiar de página */}
-        <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>Anterior</button>
-        <span>Página {currentPage}</span>
-        <button onClick={() => paginate(currentPage + 1)} disabled={indexOfLastItem >= data.length}>Siguiente</button>
-      </div>
       <div className='sensor-controls'>
         <div className='sensor-graph'>
-          {/* Botón para cambiar entre mostrar todos los datos y solo los de la página actual */}
-          <button className='all-data' onClick={() => setShowAllData(!showAllData)}>
-            {showAllData ? 'Mostrar Paginados' : 'Mostrar Todos'}
-          </button>
           {/* Renderizar el gráfico con los datos correspondientes */}
           <Graph data={showAllData ? data : currentItems} />
+          {/* Botón para cambiar entre mostrar todos los datos y solo los de la página actual */}
+          <div className='pagination'>
+            {/* Botones para cambiar de página */}
+            <div className='pagination-button--container'>
+              <button className='pagination-button' onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}><FaChevronCircleLeft /></button>
+              <span>Página {currentPage}</span>
+              <button className='pagination-button' onClick={() => paginate(currentPage + 1)} disabled={indexOfLastItem >= data.length}><FaChevronCircleRight/></button>
+            </div>
+            <button className='all-data' onClick={() => setShowAllData(!showAllData)}>
+              {showAllData ? 'Datos Actuales' : 'Todos los datos'}
+            </button>
+          </div>
+
         </div>
         <div className='sensor-file'>
           <DownloadSensorData data={currentItems}></DownloadSensorData>
