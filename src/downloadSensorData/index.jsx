@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
-import './styles.css'
+import React, { Component } from 'react';
+import './styles.css';
 
-function DownloadSensorData({ data = [] }) {
-  const [selectedFileType, setSelectedFileType] = useState('txt');
+class DownloadSensorData extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedFileType: 'txt'
+    };
+  }
 
-  const handleFileTypeChange = (event) => {
-    setSelectedFileType(event.target.value);
+  handleFileTypeChange = (event) => {
+    this.setState({ selectedFileType: event.target.value });
   };
 
-  const convertJSONToCSV = (data) => {
+  convertJSONToCSV = (data) => {
     const header = Object.keys(data[0]).join(',');
     const rows = data.map((obj) => Object.values(obj).join(',')).join('\n');
     return `${header}\n${rows}`;
   };
 
-  const convertJSONToText = (data) => {
+  convertJSONToText = (data) => {
     return data.map((obj) => {
       const formattedData = Object.entries(obj)
         .map(([key, value]) => `${key}: ${value}`)
@@ -23,7 +28,7 @@ function DownloadSensorData({ data = [] }) {
     }).join('\n');
   };
 
-  const convertJSONToXML = (data) => {
+  convertJSONToXML = (data) => {
     let xmlString = '<sensorData>';
     data.forEach((sensor) => {
       xmlString += '<sensor>';
@@ -36,7 +41,7 @@ function DownloadSensorData({ data = [] }) {
     return xmlString;
   };
 
-  const convertJSONToHTML = (data) => {
+  convertJSONToHTML = (data) => {
     let htmlString = '<table border="1">';
   
     // Crear encabezados de tabla
@@ -58,18 +63,11 @@ function DownloadSensorData({ data = [] }) {
     htmlString += '</table>';
   
     return htmlString;
-};
-
-  const typeFiles = {
-    csv: { name: "CSV", converter: convertJSONToCSV },
-    json: { name: "JSON", converter: JSON.stringify },
-    txt: { name: "Text", converter: convertJSONToText },
-    xml: { name: "XML", converter: convertJSONToXML },
-    html: { name: "HTML", converter: convertJSONToHTML },
   };
 
-  const createFile = (typeFile) => {
-    const convertedData = typeFiles[typeFile].converter(data);
+  createFile = (typeFile) => {
+    const { data } = this.props;
+    const convertedData = this[typeFile].converter(data);
     const blob = new Blob([convertedData], { type: 'text/plain' });
     const tempAnchor = document.createElement('a');
     tempAnchor.href = URL.createObjectURL(blob);
@@ -78,19 +76,30 @@ function DownloadSensorData({ data = [] }) {
     URL.revokeObjectURL(tempAnchor.href);
   };
 
-  return (
-    <>
-      <div className='sensor-file__type'>
-        <label className='sensor-file__label' htmlFor="fileType">Selecciona el tipo de archivo: </label>
-        <select className='sensor-file__select' id="fileType" value={selectedFileType} onChange={handleFileTypeChange}>
-          {Object.keys(typeFiles).map((typeFile) => (
-            <option key={typeFile} value={typeFile}>{typeFiles[typeFile].name}</option>
-          ))}
-        </select>
-      </div>
-      <button className='sensor-file__download' onClick={() => createFile(selectedFileType)}>Download</button>
-    </>
-  );
+  typeFiles = {
+    csv: { name: "CSV", converter: this.convertJSONToCSV },
+    json: { name: "JSON", converter: JSON.stringify },
+    txt: { name: "Text", converter: this.convertJSONToText },
+    xml: { name: "XML", converter: this.convertJSONToXML },
+    html: { name: "HTML", converter: this.convertJSONToHTML },
+  };
+
+  render() {
+    const { selectedFileType } = this.state;
+    return (
+      <>
+        <div className='sensor-file__type'>
+          <label className='sensor-file__label' htmlFor="fileType">Selecciona el tipo de archivo: </label>
+          <select className='sensor-file__select' id="fileType" value={selectedFileType} onChange={this.handleFileTypeChange}>
+            {Object.keys(this.typeFiles).map((typeFile) => (
+              <option key={typeFile} value={typeFile}>{this.typeFiles[typeFile].name}</option>
+            ))}
+          </select>
+        </div>
+        <button className='sensor-file__download' onClick={() => this.createFile(selectedFileType)}>Download</button>
+      </>
+    );
+  }
 }
 
 export default DownloadSensorData;

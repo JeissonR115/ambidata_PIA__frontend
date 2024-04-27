@@ -68,7 +68,11 @@
     width: 100%;
     margin: 10% auto;
 }
-
+.error-message{
+    color: rgb(255, 40, 40);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 .form-title{
     color: #289019;
     text-align: center;
