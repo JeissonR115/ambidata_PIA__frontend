@@ -23,6 +23,7 @@ function Search({ type = 'date', attribute, handleSearch }) {
   function switchAttribute(attribute) {
     // Objeto que mapea los atributos a las rutas de la API
     const today = new Date();
+    today.setDate(today.getDate() + 1);
     const formattedToday = today.toISOString().split('T')[0];
     const attributeList = {
       date: `/date?end_date=${formattedToday}&start_date=`, // Ruta para buscar por fecha
