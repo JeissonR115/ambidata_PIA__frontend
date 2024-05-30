@@ -16,6 +16,7 @@ function SensorData({ data, searchValue }) {
   const itemsPerPage = 5; // Número de elementos por página
   const [currentPage, setCurrentPage] = useState(1);
   const [showAllData, setShowAllData] = useState(false); // Estado para controlar si se muestran todos los datos o solo los de la página actual
+  const [inverted, setInverted] = useState(false); // Estado para controlar si los datos están invertidos
 
   // Calcula el índice inicial y final de los elementos para la página actual
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -36,6 +37,12 @@ function SensorData({ data, searchValue }) {
 
   // Función para cambiar de página
   const paginate = pageNumber => setCurrentPage(pageNumber);
+
+  // Función para invertir el array de datos
+  const toggleInvert = () => {
+    data.reverse();
+    setInverted(!inverted); // Cambiar el estado para forzar la re-renderización
+  };
 
   return (
     <>
@@ -74,6 +81,9 @@ function SensorData({ data, searchValue }) {
             </div>
             <button className='all-data' onClick={() => setShowAllData(!showAllData)}>
               {showAllData ? 'Datos Actuales' : 'Todos los datos'}
+            </button>
+            <button className='invert-data' onClick={toggleInvert}>
+              {inverted ? 'Primeros' : 'Últimos'}
             </button>
           </div>
 
